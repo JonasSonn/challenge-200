@@ -6,7 +6,7 @@ namespace solutions
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(string.Format("Solution201: {0}", solution201.Maskify("122231")));
         }
     }
 }
