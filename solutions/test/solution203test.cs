@@ -15,13 +15,6 @@ namespace test
         {
             Assert.Equal("No", solutions.solution203.IsPrime(primesStub, nonPrime));
         }
-
-               [Fact]
-        public void passPrime2ExpectNo()
-        {
-            Assert.Equal("No", solutions.solution203.IsPrime(primesStubTiny, 4));
-        }
-
         
         [Theory]
         [InlineData(2)]
@@ -33,12 +26,5 @@ namespace test
         {
             Assert.Equal("Yes", solutions.solution203.IsPrime(primesStub, prime));
         }
-
-        [Fact]
-        public void passPrime2ExpectYes()
-        {
-            Assert.Equal("Yes", solutions.solution203.IsPrime(primesStub, 89));
-        }
-
     }
 }
