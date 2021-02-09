@@ -58,9 +58,9 @@ namespace solutions {
                 pre = " x ";
 
             if (PrimeOccurrencePair.Value > 1)
-                        return string.Format("{0}{1}^{2}", pre, PrimeOccurrencePair.Key, PrimeOccurrencePair.Value);
+                        return $"{pre}{PrimeOccurrencePair.Key}^{PrimeOccurrencePair.Value}";
                     else
-                        return string.Format("{0}{1}", pre, PrimeOccurrencePair.Key);
+                        return $"{pre}{PrimeOccurrencePair.Key}"; 
             
         }
 
