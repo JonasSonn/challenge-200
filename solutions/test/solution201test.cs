@@ -20,6 +20,11 @@ namespace test
             Assert.Equal("XXXXXXX8910", solutions.solution201.Maskify("12345678910"));
         }
 
+        [Fact]
+        public void AnyInputMasked(){
+            Assert.Equal("XXXXXXXO1e~", solutions.solution201.Maskify("He¤s ^rO1e~"));
+        }
+
         [Theory]
         [InlineData("1")]
         [InlineData("12")]

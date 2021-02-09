@@ -5,22 +5,22 @@ using System.Collections.Generic;
 namespace solutions {
     class solution202
     {
-        internal static string ExpressFactors(long posint)
+        internal static string ExpressFactors(ulong positiveint)
         {
-            if (posint == 1)
+            if (positiveint == 1)
                 return "1 has no prime factors";
-            SortedList<long, int> primefactors = ExtractPrimeFactors(ref posint);
+            SortedList<ulong, int> primefactors = ExtractPrimeFactors(ref positiveint);
             return CreateFormattedString(primefactors);;
         }
 
-        private static SortedList<long, int> ExtractPrimeFactors(ref long posint)
+        private static SortedList<ulong, int> ExtractPrimeFactors(ref ulong positiveint)
         {
-            SortedList<long, int> primefactors = new SortedList<long, int>();
+            SortedList<ulong, int> primefactors = new SortedList<ulong, int>();
 
-            int divisor = 2;
-            while (posint != 1)
+            uint divisor = 2;
+            while (positiveint != 1)
             {
-                if (posint % divisor == 0)
+                if (positiveint % divisor == 0)
                 {
                     if (primefactors.ContainsKey(divisor))
                     {
@@ -30,7 +30,7 @@ namespace solutions {
                     {
                         primefactors.Add(divisor, 1);
                     }
-                    posint = posint / divisor;
+                    positiveint = positiveint / divisor;
                     divisor = 2;
                 }
                 else
@@ -40,19 +40,19 @@ namespace solutions {
             return primefactors;
         }
      
-        private static string CreateFormattedString(SortedList<long, int> primefactors)
+        private static string CreateFormattedString(SortedList<ulong, int> primefactors)
         {
             string expression = "";
             bool notFirst = false;
-            foreach (KeyValuePair<long, int> PrimeOccurrencePair in primefactors)
+            foreach (KeyValuePair<ulong, int> PrimeOccurrencePair in primefactors)
             {
                 expression = string.Concat(expression, FormatPrimeFactor(PrimeOccurrencePair, notFirst));
                 notFirst = true; 
             }
             return expression;
         }
-        
-        private static string FormatPrimeFactor(KeyValuePair<long, int> PrimeOccurrencePair, bool NotFirst) {
+
+        private static string FormatPrimeFactor(KeyValuePair<ulong, int> PrimeOccurrencePair, bool NotFirst) {
             string pre = "";
             if (NotFirst)
                 pre = " x ";
