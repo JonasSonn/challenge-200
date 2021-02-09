@@ -10,21 +10,40 @@ namespace solutions{
         }
 
         static public bool BinarySearch(ref int[] primesSub, int target){
-            int middle = primesSub.Length/2; 
-            if(primesSub[middle] == target)
+            int middleindex = primesSub.Length/2; 
+            if(TargetFound(primesSub[middleindex], target))
                 return true;
-            if(primesSub.Length == 1)
+            if(ListDepleted(primesSub.Length))
                 return false;
-            if(primesSub[middle] < target){
-                int[] subprime = primesSub[middle..];
+            if(TargetLargerThanMiddle(primesSub[middleindex], target)){
+                int[] subprime = primesSub[middleindex..];
                 return BinarySearch(ref subprime, target);
-            } else if(primesSub[middle] > target){
-                int[] subprime = primesSub[0..^middle];
+            } 
+            else if(TargetSmallerThanMiddle(primesSub[middleindex], target)){
+                int[] subprime = primesSub[0..^middleindex];
                 return  BinarySearch(ref subprime, target);
-            } else {
+            } 
+            else {
                 return false;
             }
 
         }
+
+        static private bool TargetFound(int middleval, int target){
+            return (middleval == target) ? true : false;
+        }
+
+        static private bool ListDepleted(int length){
+            return (length == 1) ? true : false;
+        }
+
+        static private bool TargetLargerThanMiddle(int middleval, int target){
+            return (middleval < target) ? true : false; 
+        }
+        static private bool TargetSmallerThanMiddle(int middleval, int target){
+            return (middleval > target) ? true : false; 
+        }
+
+
     }
 }
